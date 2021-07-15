@@ -24,8 +24,6 @@
         <script src="../../../../../_static/jquery.js"></script>
         <script src="../../../../../_static/underscore.js"></script>
         <script src="../../../../../_static/doctools.js"></script>
-        <script src="../../../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
 
@@ -386,9 +384,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end_flag</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">total_sleep_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collector</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">total_sleep_count</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_collector</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;please first close collector&quot;</span><span class="p">)</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">total_sleep_count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_slave</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="n">BaseCommCollector</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
